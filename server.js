@@ -48,3 +48,9 @@ app.get('/home', (req, res) => {
         pageTitle: 'Home Page'
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('project.html', {
+        pageTitle: 'Project page'
+    });
+});
