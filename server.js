@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -26,8 +28,8 @@ app.use((req, res, next) => {
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(4200, () => {
-    console.log('App listning on port 4200');
+app.listen(port, () => {
+    console.log(`App listning on port ${port}`);
 });
 
 app.get('/', (req, res) => {
