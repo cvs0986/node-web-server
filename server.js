@@ -11,6 +11,10 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
 
+hbs.registerHelper('getCurrentYear', () => {
+    return new Date().getFullYear();
+});
+
 app.use((req, res, next) => {
     var now = new Date().toString();
     var log = `${now}: Method ${req.method} || URL ${req.url}`;
@@ -35,7 +39,6 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.render('index.html',{
         welcomeMessage: 'Hi Welcome to this website, currently you are on ',
-        currentYear: new Date().getFullYear(),
         pageTitle: 'Index Page'
     });
 });
